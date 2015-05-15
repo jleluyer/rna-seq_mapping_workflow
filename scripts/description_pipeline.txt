@@ -1,0 +1,38 @@
+#######Pipeline genome mapping and DE JLL######
+
+
+0) for better parallelisation on Colosse, create script for each sample
+(optionnal but recommended)
+
+generate_scripts.sh
+
+1) use Trimmomatic to trim reads and keep only paired.fastq.gz:
+
+trimmomatic_template.sh
+
+2) create both genome indexes for tophat and STAR:
+
+STAR_index_template.sh
+tophat_index_template.sh
+
+3) align each sample against the reference geome using both STAR and tophat:
+
+STAR_align_template.sh
+tophat_aligne_template.sh
+
+2) use samtools to sort by name:
+
+samtoolsSort_names_template.sh
+
+3) use HTSeq-count to create mRNA associated RPKM matrix
+
+Htseq_template.sh
+
+4) DE analysis with edgeR and DEseq2:
+
+edgeR_HTSeq_script.R
+DESeq2_HTSeq_script.R
+
+Note: need to install packages edgeR and DESeq2
+Note: adapt first steps on both .R scripts (and possibly HTseq output file names) to fit your needs
+Note: manually prepare HTseq output file for edgeR : join file1 file2 | join - file3 |.... > output.txt # can be added directly to the script HTseq_template.sh
