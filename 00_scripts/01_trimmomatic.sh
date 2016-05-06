@@ -26,12 +26,12 @@ base=__BASE__
 
 java -XX:ParallelGCThreads=1 -Xmx22G -cp $TRIMMOMATIC_JAR org.usadellab.trimmomatic.TrimmomaticPE \
         -phred33 \
-        02-data/"$base".R1.f(ast)?q.gz \
-        02-data/"$base".R2.f(astq)?.gz \
-        02-data/"$base".R1.paired.fastq.gz \
-        02-data/"$base".R1.single.fastq.gz \
-        02-data/"$base".R2.paired.fastq.gz \
-        02-data/"$base".R2.single.fastq.gz \
+        02-data/"$base"_R1.f(ast)?q.gz \
+        02-data/"$base"_R2.f(astq)?.gz \
+        02-data/"$base"_R1.paired.fastq.gz \
+        02-data/"$base"_R1.single.fastq.gz \
+        02-data/"$base"_R2.paired.fastq.gz \
+        02-data/"$base"_R2.single.fastq.gz \
         ILLUMINACLIP:"$ADAPTERFILE":2:20:7 \
         LEADING:20 \
         TRAILING:20 \
