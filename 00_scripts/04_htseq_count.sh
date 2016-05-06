@@ -1,5 +1,5 @@
 #!/bin/bash
-#PBS -A userID_
+#PBS -A userID
 #PBS -N HTseq-countmRNA__BASE__
 #PBS -o HTseq-countmRNA__BASE__.out
 #PBS -e HTseq-countmRNA__BASE__.err

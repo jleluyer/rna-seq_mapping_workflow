@@ -1,10 +1,10 @@
 #!/bin/bash
-#PBS -A _user_Colosse_ID_
+#PBS -A userID
 #PBS -N STAR_index
 #PBS -o STAR_index.out
 #PBS -e STAR_index.err
 #PBS -l walltime=24:00:00
-#PBS -M _user_mail_adress_
+#PBS -M userEmail
 #PBS -m ea 
 #PBS -l nodes=1:ppn=8
 #PBS -r n
