@@ -4,4 +4,4 @@ An integrated worklow based on genome-mapping and DE gene assessment to conduct 
 
 ## Documentation
 
-[**Documentation**](https://github.com/jleluyer/RNA-seq_genome_mapping)y
+[**Documentation**](https://github.com/jleluyer/RNA-seq_genome_mapping)
