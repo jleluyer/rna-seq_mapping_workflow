@@ -2,7 +2,7 @@
 
 # launch scripts for Colosse
 
-for file in $(ls 02-data/*.f*q.gz|perl -pe 's/.R[12].f(ast)?q.gz//')
+for file in $(ls 02-data/*.f*q.gz|perl -pe 's/_R[12].f(ast)?q.gz//')
 do
 
 base=$(basename "$file")
