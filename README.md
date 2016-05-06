@@ -1,8 +1,7 @@
-# RNA-seq_genome_mapping
+# RNA-seq using a reference genome
 
-An integrated worklow based on genome-mapping and DE gene assessment to help RNA-seq data analyses
+An integrated worklow based on genome-mapping and DE gene assessment to conduct RNA-seq data analyses
 
 ## Documentation
 
-RNA-seq_pipeline_genome-mappingican be found in the ``RNA-seq_pipeline_genome-mapping.html`` file in your downloaded
-[RNA-seq_genome_mapping](https://github.com/jleluyer/RNA-seq_genome_mapping) directory
+[**Documentation**](https://github.com/jleluyer/RNA-seq_genome_mapping)y
