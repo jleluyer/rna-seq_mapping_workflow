@@ -9,6 +9,11 @@
 #PBS -l nodes=1:ppn=8
 #PBS -r n
 
+TIMESTAMP=$(date +%Y-%m-%d_%Hh%Mm%Ss)
+SCRIPT=$0
+NAME=$(basename $0)
+LOG_FOLDER="98_log_files"
+cp $SCRIPT $LOG_FOLDER/"$TIMESTAMP"_"$NAME"
 
 #pre-requis
 
@@ -26,14 +31,14 @@ base=__BASE__
 
 java -XX:ParallelGCThreads=1 -Xmx22G -cp $TRIMMOMATIC_JAR org.usadellab.trimmomatic.TrimmomaticPE \
         -phred33 \
-        02-data/"$base"_R1.f(ast)?q.gz \
-        02-data/"$base"_R2.f(astq)?.gz \
-        02-data/"$base"_R1.paired.fastq.gz \
-        02-data/"$base"_R1.single.fastq.gz \
-        02-data/"$base"_R2.paired.fastq.gz \
-        02-data/"$base"_R2.single.fastq.gz \
+        02_data/"$base"_R1.fastq.gz \
+        02_data/"$base"_R2.fastq.gz \
+        03_trimmed/"$base"_R1.paired.fastq.gz \
+        03_trimmed/"$base"_R1.single.fastq.gz \
+        03_trimmed/"$base"_R2.paired.fastq.gz \
+        03_trimmed/"$base"_R2.single.fastq.gz \
         ILLUMINACLIP:"$ADAPTERFILE":2:20:7 \
         LEADING:20 \
         TRAILING:20 \
         SLIDINGWINDOW:30:30 \
-        MINLEN:60
+        MINLEN:60 2>&1 | tee 98_log_files/"$TIMESTAMP"_trimmomatic_"$base".log
