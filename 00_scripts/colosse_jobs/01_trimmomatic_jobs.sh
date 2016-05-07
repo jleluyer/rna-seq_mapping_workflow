@@ -8,7 +8,7 @@ do
 done
 
  #set working directory
-sed -i "s#__PWD__#$(pwd)#g" 00-scripts/colosse_jobs/TRIM*sh 
+sed -i "s#__PWD__#$(pwd)#g" 00_scripts/colosse_jobs/TRIM*sh 
 
 #Submit jobs
 for i in $(ls 00_scripts/colosse_jobs/TRIM*sh); do msub $i; done
