@@ -25,16 +25,18 @@ module load mugqic/blat/36
 module load mugqic/star/2.5.0a
 
 #variable
+GENOMEFOLDER="02_data/name_new_and_empty_genomefolder"
+GENOME="/path/to/genome.fasta"
 PWD="__PWD__"
 
 cd $PWD
 
-mkdir 02-data/genome_star_dir
+mkdir $GENOMEFOLDER
 
 STAR --runThreadN 1 \
           --runMode genomeGenerate \
-	  --genomeDir 02-data/genome_star_dir \
-    	  --genomeFastaFiles  \
+	  --genomeDir $GENOMEFOLDER \
+    	  --genomeFastaFiles $GENOME \
           --sjdbOverhang 99 \
           --genomeChrBinNbits 10 \
           --limitGenomeGenerateRAM 20000000000 2>&1 | tee 98_log_files/"$TIMESTAMP"_star_index.log 
