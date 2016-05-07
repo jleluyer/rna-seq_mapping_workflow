@@ -33,12 +33,13 @@ cd $PWD
 
 mkdir $GENOMEFOLDER
 
-cpu="--runThreadN 8"				#Threads
-m="--runMode genomeGenerate"			#Mode
-gendir="--genomeDir $GENOMEFOLDER"		#genome directory. Need to be empty before launchin the script
-genfile="--genomeFastaFiles $GENOME"		#genome.fasta file
-#overhang="--sjdbOverhang 99"			#only used when annotation file gff
-chrbits="--genomeChrBinNbits 10"		#Chromosom bin bits
-ram="--limitGenomeGenerateRAM 20000000000"	#RAM
+cpu="--runThreadN 8"				                  #Threads
+m="--runMode genomeGenerate"			            #Mode
+gendir="--genomeDir $GENOMEFOLDER"		        #genome directory. Need to be empty before launchin the script
+genfile="--genomeFastaFiles $GENOME"		      #genome.fasta file
+#overhang="--sjdbOverhang 99"			            #only used when annotation file gff
+#gff="--sjdbGTFfile path/to/file.gff"         #gff file         
+chrbits="--genomeChrBinNbits 10"	          	#
+ram="--limitGenomeGenerateRAM 20000000000"  	#RAM
 
-STAR $cpu $m $gendir $genfile $overhang $chrbits $ram 2>&1 | tee 98_log_files/"$TIMESTAMP"_star_index.log 
+STAR $cpu $m $gendir $genfile $overhang $gff $chrbits $ram 2>&1 | tee 98_log_files/"$TIMESTAMP"_star_index.log 
