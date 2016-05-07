@@ -6,3 +6,5 @@
 *single*
 *.gz
 *.zip
+*fq
+*fastq
