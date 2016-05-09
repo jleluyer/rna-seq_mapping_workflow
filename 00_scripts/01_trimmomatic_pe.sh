@@ -42,3 +42,4 @@ java -XX:ParallelGCThreads=1 -Xmx22G -cp $TRIMMOMATIC_JAR org.usadellab.trimmoma
         TRAILING:20 \
         SLIDINGWINDOW:30:30 \
         MINLEN:60 2>&1 | tee 98_log_files/"$TIMESTAMP"_trimmomatic_"$base".log
+        
