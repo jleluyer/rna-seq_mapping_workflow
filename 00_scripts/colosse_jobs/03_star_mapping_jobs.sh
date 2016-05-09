@@ -1,4 +1,6 @@
-#!/bin/bash
+#!
+ID="ihv-653-ab"
+email="jeremy.le-luyer.1@ulaval.ca"
 
 # launch scripts for Colosse
 
@@ -14,9 +16,15 @@ done
 
 PWD=$(pwd)
 
-sed -i "s#__PWD__#$(pwd)#g" 00_scripts/colosse_jobs/MAP*sh 
+sed -i "s#__PWD__#$(pwd)#g" 00_scripts/colosse_jobs/MAP*sh
+
+#change colosse headers
+
+
+for i in $(ls 00_scripts/colosse/MAP*sh); do sed -i -e "s/userID/$ID/g" -e "s/userEmail/$email/g" $i;done
 
 #Submit jobs
 
-for i in $(ls 00_scripts/colosse_jobs/MAP*sh); do msub $i; done
+for i in $(ls 00_scripts/colosse_jobs/MAP*sh); do msub $i; donein/bash
+
 

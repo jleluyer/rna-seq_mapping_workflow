@@ -19,27 +19,30 @@ module laod mugqic/samtools/1.2
 #variables
 PWD="__PWD__"
 base="__BASE__"
-DATAFOLDER="02-data"
+DATAINPUT="03_trimmed"
+DATAOUPUT="04_mapped"
+
 
 cd $PWD
 
-	# aligning
-echo '	aligning "$base"'
+        # aligning
+echo '  aligning "$base"'
 
 STAR --runThreadN 8 \
-  --genomeDir "$DATAFOLDER"/genome_star_dir \
-    --readFilesIn "$DATAFOLDER"/"$base".R1.paired.fastq.gz "$DATAFOLDER"/"$base".R2.paired.fastq.gz \
+  --genomeDir "$DATAINPUT"/genome_star_dir \
+    --readFilesIn "$DATAINPUT"/"$base".R1.paired.fastq.gz "$DATAINPUT"/"$base".R2.paired.fastq.gz \
     --readFilesCommand zcat \
     #--sjdbGTFfile /path/to/genome_annot.gff \
-    --outFileNamePrefix "$DATAFOLDER"/star_"$base"
+    --outFileNamePrefix "$DATAOUTPUT"/star_"$base"
 
-	# trimming and sorting
-samtools view -Sb -q 1 "$DATAFOLDER"/star_"$base".sam > "$DATAFOLDER"/star_"$base".bam
+        # trimming and sorting
+samtools view -Sb -q 1 "$DATAOUTPUT"/star_"$base".sam > "$DATAOUTPUT"/star_"$base".bam
 
-samtools sort -n "$DATAFOLDER"/star_"$base".bam "$DATAFOLDER"/star_"$base".sorted.bam
-  
+samtools sort -n "$DATAOUTPUT"/star_"$base".bam "$DATAOUTPUT"/star_"$base".sorted.bam
+
+
   # Clean up
-    echo '	Removing "$base"'
+    echo '      Removing "$base" temp files'
 
-rm $DATAFOLDER/star_"$(base)".sam
-rm $DATAFOLDER/star_"$(base)".bam
+rm "$DATAOUTPUt"/star_"$(base)".sam
+rm "$DATAOUTPUT"/star_"$(base)".bam
