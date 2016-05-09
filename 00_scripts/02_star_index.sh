@@ -1,10 +1,10 @@
 #!/bin/bash
-#PBS -A userID
+#PBS -A ihv-653-ab
 #PBS -N STAR_index
 #PBS -o STAR_index.out
 #PBS -e STAR_index.err
 #PBS -l walltime=24:00:00
-#PBS -M userEmail
+#PBS -M jeremy.le-luyer.1@ulaval.ca
 #PBS -m ea 
 #PBS -l nodes=1:ppn=8
 #PBS -r n
@@ -25,9 +25,9 @@ module load mugqic/blat/36
 module load mugqic/star/2.5.0a
 
 #variable
-GENOMEFOLDER="02_data/name_new_and_empty_genomefolder"
-GENOME="/path/to/genome.fasta"
-PWD="__PWD__"
+GENOMEFOLDER="02_data/genome_star.dir"
+GENOME="/rap/ihv-653-ab/jeremy_leluyer/Database/Okisutch/okis_uvic.scf.fasta"
+PWD="/rap/ihv-653-ab/jeremy_leluyer/epic4/transgenics/transcriptome/rna-seq_workflow"
 
 cd $PWD
 
