@@ -1,10 +1,10 @@
 #!/bin/bash
-#PBS -A userID
+#PBS -A ihv-653-ab
 #PBS -N STAR_align__BASE__
 #PBS -o STAR_align__BASE__.out
 #PBS -e STAR_align__BASE__.err
 #PBS -l walltime=24:00:00
-#PBS -M userEmail
+#PBS -M jeremy.le-luyer.1@ulaval.ca
 #PBS -m ea 
 #PBS -l nodes=1:ppn=8
 #PBS -r n
@@ -19,6 +19,7 @@ module laod mugqic/samtools/1.2
 #variables
 PWD="__PWD__"
 base="__BASE__"
+DATAGENOME="02_data"
 DATAINPUT="03_trimmed"
 DATAOUPUT="04_mapped"
 
@@ -29,8 +30,8 @@ cd $PWD
 echo '  aligning "$base"'
 
 STAR --runThreadN 8 \
-  --genomeDir "$DATAINPUT"/genome_star_dir \
-    --readFilesIn "$DATAINPUT"/"$base".R1.paired.fastq.gz "$DATAINPUT"/"$base".R2.paired.fastq.gz \
+  --genomeDir "$DATAGENOME"/genome_star_dir \
+    --readFilesIn "$DATAINPUT"/"$base"_R1.paired.fastq.gz "$DATAINPUT"/"$base"_R2.paired.fastq.gz \
     --readFilesCommand zcat \
     #--sjdbGTFfile /path/to/genome_annot.gff \
     --outFileNamePrefix "$DATAOUTPUT"/star_"$base"
