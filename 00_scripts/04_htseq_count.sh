@@ -1,10 +1,10 @@
 #!/bin/bash
-#PBS -A ihv-653-ab
+#PBS -A userID
 #PBS -N HTseq-countmRNA__BASE__
 #PBS -o HTseq-countmRNA__BASE__.out
 #PBS -e HTseq-countmRNA__BASE__.err
 #PBS -l walltime=24:00:00
-#PBS -M jeremy.le-luyer.1@ulaval.ca
+#PBS -M userEmail
 #PBS -m ea 
 #PBS -l nodes=1:ppn=8
 #PBS -r n

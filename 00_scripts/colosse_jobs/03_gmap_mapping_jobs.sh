@@ -21,10 +21,9 @@ sed -i "s#__PWD__#$(pwd)#g" 00_scripts/colosse_jobs/GSNAP*sh
 #change colosse headers
 
 
-#for i in $(ls 00_scripts/colosse/MAP*sh); do sed -i -e "s/userID/$ID/g" -e "s/userEmail/$email/g" $i;done
+for i in $(ls 00_scripts/colosse_jobs/GSNAP*sh); do sed -i -e "s/userID/$ID/g" -e "s/userEmail/$email/g" $i;done
 
 #Submit jobs
-exit
 for i in $(ls 00_scripts/colosse_jobs/GSNAP*sh); do msub $i; done
 
 
