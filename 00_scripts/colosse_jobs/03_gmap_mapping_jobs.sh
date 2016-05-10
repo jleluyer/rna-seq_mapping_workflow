@@ -9,14 +9,14 @@ do
 
 base=$(basename "$file")
 
-	toEval="cat 00_scripts/03_star_mapping.sh | sed 's/__BASE__/$base/g'"; eval $toEval > 00_scripts/colosse_jobs/MAP_$base.sh
+	toEval="cat 00_scripts/03_gsnap_mapping.sh | sed 's/__BASE__/$base/g'"; eval $toEval > 00_scripts/colosse_jobs/GSNAP_$base.sh
 done
 
  #set working directory
 
 PWD=$(pwd)
 
-sed -i "s#__PWD__#$(pwd)#g" 00_scripts/colosse_jobs/MAP*sh
+sed -i "s#__PWD__#$(pwd)#g" 00_scripts/colosse_jobs/GSNAP*sh
 
 #change colosse headers
 
@@ -25,6 +25,6 @@ sed -i "s#__PWD__#$(pwd)#g" 00_scripts/colosse_jobs/MAP*sh
 
 #Submit jobs
 exit
-for i in $(ls 00_scripts/colosse_jobs/MAP*sh); do msub $i; done
+for i in $(ls 00_scripts/colosse_jobs/GSNAP*sh); do msub $i; done
 
 

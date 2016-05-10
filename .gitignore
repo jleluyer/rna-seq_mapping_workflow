@@ -1,2 +1,10 @@
 *.err
 *.out
+*.sam
+*.bam
+*.gz
+*.fastq
+*.fasta
+*.fq
+star*
+
