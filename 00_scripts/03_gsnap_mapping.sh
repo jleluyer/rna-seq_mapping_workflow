@@ -3,7 +3,7 @@
 #PBS -N gsnap__BASE__
 #PBS -o gsnap__BASE__.out
 #PBS -e gsnap__BASE__.err
-#PBS -l walltime=24:00:00
+#PBS -l walltime=04:00:00
 #PBS -M userEmail
 #PBS -m ea 
 #PBS -l nodes=1:ppn=8
@@ -35,10 +35,12 @@ base=__BASE__
     # Create bam file
     echo "Creating bam for $base"
 
-    samtools view -Sb -q 1 -F 4 -F 1797 \
+    samtools view -Sb -q 1 -F 4  \
         $DATAOUTPUT/"$base".sam >  $DATAOUTPUT/"$base".bam
-
+	samtools sort -n "$DATAOUTPUT"/"$base".bam "$DATAOUTPUT"/"$base".sorted.bam
     # Clean up
-    echo "Removing $base"
+    echo "Removing "$DATAOUTPUT"/"$base".sam"
+    echo "Removing "$DATAOUTPUT"/"$base".bam"
 
-    rm $DATAOUTPUT/"$base".sam
+   	#rm $DATAOUTPUT/"$base".sam
+    	#rm $DATAOUTPUT/"$base".bam

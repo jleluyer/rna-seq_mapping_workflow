@@ -18,7 +18,10 @@ module load mugqic/samtools/1.2
 #variables
 PWD="__PWD__"
 base=__BASE__
+DATAINPUT="04_mapped"
+DATAOUTPUT="05_count"
+
 
 htseq-count -f bam -s no -t mRNA -i mRNA \
- 02-data/star_"$base".sorted.bam >> 02-data/htseq-count_"$base".txt
+ "$DATAINPUT"/"$base".sorted.bam >> "$DATAOUTPUT"/htseq-count_"$base".txt
 
