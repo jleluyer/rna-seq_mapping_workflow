@@ -35,9 +35,17 @@ base=__BASE__
     # Create bam file
     echo "Creating bam for $base"
 
+<<<<<<< HEAD
     samtools view -Sb -q 1 -F 4  \
         $DATAOUTPUT/"$base".sam >  $DATAOUTPUT/"$base".bam
 	samtools sort -n "$DATAOUTPUT"/"$base".bam "$DATAOUTPUT"/"$base".sorted.bam
+=======
+	samtools view -Sb -q 1 -F 4 $DATAOUTPUT/"$base".sam >  $DATAOUTPUT/"$base".bam
+	
+     echo "Creating sorted bam for $base"
+	samtools sort -n "$DATAOUTPUT"/"$base".bam "$DATAOUTPUT"/"$base".sorted.bam
+    
+>>>>>>> b523cee045bd0c980afc732fe1a70e664526b011
     # Clean up
     echo "Removing "$DATAOUTPUT"/"$base".sam"
     echo "Removing "$DATAOUTPUT"/"$base".bam"
