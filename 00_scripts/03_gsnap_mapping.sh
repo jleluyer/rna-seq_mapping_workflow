@@ -9,17 +9,17 @@
 #PBS -l nodes=1:ppn=8
 #PBS -r n
 
-
+#module prerequis
 module load apps/gmap/2015-12-31.v9
-
 
 # Global variables
 DATAOUTPUT="04_mapped"
 DATAINPUT="03_trimmed"
 GENOMEFOLDER="/rap/userID/jeremy_leluyer/Database/Okisutch"
 GENOME="gmap_coho"
-PWD="__PWD__"
-cd $PWD
+
+#move to present working dir
+cd $PBS_O_WORKDIR
 
 base=__BASE__
 
