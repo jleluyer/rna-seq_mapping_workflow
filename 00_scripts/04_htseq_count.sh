@@ -15,12 +15,13 @@ module load compilers/gcc/4.8  apps/mugqic_pipeline/2.1.1
 module load mugqic/bowtie2/2.2.5
 module load mugqic/samtools/1.2
 
-#variables
-PWD="__PWD__"
+#Global variables
 base=__BASE__
 DATAINPUT="04_mapped"
 DATAOUTPUT="05_count"
 
+#move to present working dir
+cd $PBS_O_WORKDIR
 
 htseq-count -f bam -s no -t mRNA -i mRNA \
  "$DATAINPUT"/"$base".sorted.bam >> "$DATAOUTPUT"/htseq-count_"$base".txt
