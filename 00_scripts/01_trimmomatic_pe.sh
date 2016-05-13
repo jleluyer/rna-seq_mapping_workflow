@@ -25,7 +25,8 @@ module load mugqic/trimmomatic/0.35
 ADAPTERFILE="/rap/userID/00_ressources/02_databases/univec/univec.fasta"
 PWD="__PWD__"
 
-cd $PWD
+#move to present working dir
+cd $PBS_O_WORKDIR
 
 base=__BASE__
 
