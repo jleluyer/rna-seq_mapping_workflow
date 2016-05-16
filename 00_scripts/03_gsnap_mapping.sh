@@ -3,7 +3,7 @@
 #PBS -N gsnap__BASE__
 #PBS -o gsnap__BASE__.out
 #PBS -e gsnap__BASE__.err
-#PBS -l walltime=04:00:00
+#PBS -l walltime=10:00:00
 #PBS -M userEmail
 #PBS -m ea 
 #PBS -l nodes=1:ppn=8
@@ -15,8 +15,8 @@ module load apps/gmap/2015-12-31.v9
 # Global variables
 DATAOUTPUT="04_mapped"
 DATAINPUT="03_trimmed"
-GENOMEFOLDER="/rap/userID/jeremy_leluyer/Database/Okisutch"
-GENOME="gmap_coho"
+GENOMEFOLDER="/rap/ihv-653-ab/00_ressources/01_genomes/Omykiss"
+GENOME="gmap_omykiss"
 
 #move to present working dir
 cd $PBS_O_WORKDIR
@@ -39,7 +39,7 @@ base=__BASE__
         $DATAOUTPUT/"$base".sam >  $DATAOUTPUT/"$base".bam
 	
      echo "Creating sorted bam for $base"
-	samtools sort -n "$DATAOUTPUT"/"$base".bam "$DATAOUTPUT"/"$base".sorted.bam
+	samtools sort -n "$DATAOUTPUT"/"$base".bam "$DATAOUTPUT"/"$base".sorted
     
     # Clean up
     echo "Removing "$DATAOUTPUT"/"$base".sam"
