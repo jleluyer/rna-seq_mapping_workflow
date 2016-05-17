@@ -16,6 +16,8 @@ module load mugqic/htslib/1.2.1
 #Global variables
 DATAINPUT="04_mapped"
 DATAOUTPUT="05_count"
+GFF_FOLDER="/rap/ihv-653-ab/00_ressources/01_genomes/Omykiss"
+GFF_FILE="Oncorhynchus_mykiss_chr_annot.gff"
 
 #move to present working dir
 cd $PBS_O_WORKDIR
@@ -25,6 +27,6 @@ do
 base="$(basename $i)"
 
 htseq-count -f bam -s no -r pos -i mRNA \
- "$DATAINPUT"/"$base".sorted.bam >> "$DATAOUTPUT"/htseq-count_"$base".txt
+ "$DATAINPUT"/"$base".sorted.bam "$GFF_FOLDER"/"$GFF_FILE" >> "$DATAOUTPUT"/htseq-count_"$base".txt
 
 done 2>&1 | tee 98_log_files/"$TIMESTAMP"_htseq.log
