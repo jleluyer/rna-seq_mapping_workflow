@@ -26,7 +26,7 @@ for i in $(ls 04_mapped/*sorted.bam)
 do
 base="$(basename $i)"
 
-htseq-count -f bam -s no -r pos -i mRNA \
- "$DATAINPUT"/"$base".sorted.bam "$GFF_FOLDER"/"$GFF_FILE" >> "$DATAOUTPUT"/htseq-count_"$base".txt
+htseq-count -f bam -s no -t mRNA -r pos -i mRNA \
+ "$DATAINPUT"/"$base" "$GFF_FOLDER"/"$GFF_FILE" >> "$DATAOUTPUT"/htseq-count_"$base".txt
 
 done 2>&1 | tee 98_log_files/"$TIMESTAMP"_htseq.log
