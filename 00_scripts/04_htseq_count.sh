@@ -1,5 +1,5 @@
 #!/bin/bash
-#PBS -A ihv-653-ab
+#PBS -A userID
 #PBS -N HTseq-countmRNA
 #PBS -o HTseq-countmRNA.out
 #PBS -e HTseq-countmRNA.err
