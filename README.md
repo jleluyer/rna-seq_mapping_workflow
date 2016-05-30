@@ -10,6 +10,7 @@ The software is provided "as is", without warranty of any kind, express or impli
 
 ## Documentation
 
+Note that **ALL** the scripts must be launched from the root folder **rna-seq_mapping_workflow/**
 ### 1. Clone git hub directory
 
 ```
