@@ -33,8 +33,6 @@ cd ../..
 ```
 **still have to properly configurate trinity on Colosse**
 
-Make sure **Bowtie** is in your **$PATH**.
-
 ### 3. Import data
 
 ```
@@ -64,14 +62,14 @@ Then launch:
 
 You may also want to check the quality of your data prior to trimming using **00_scripts/utility_scripts/fastq.sh**. This will require to have **fastQC** installed in your **$PATH**.
 
-### 4. Index reference genome with GMAP
+### 5. Index reference genome with GMAP
 
 
 ```
 msub /00_scripts/02_gmap_index.sh
 ```
 
-### 5. Mapping
+### 6. Mapping
 
 Before launching the mapping, make sure you changed the userID and userEmail information in the script **./00_scripts/colosse_jobs/03_gmap_mapping_jobs.sh**
 
@@ -81,7 +79,7 @@ Then launch:
 ```
 This script will create a job by individual.
 
-### 6. Assess reads count
+### 7. Assess reads count
 
 Before launching the mapping, make sure you changed the userID and userEmail information in the script **./00_scripts/04_htseq_count.sh**
 
@@ -89,7 +87,7 @@ Before launching the mapping, make sure you changed the userID and userEmail inf
 msub /00_scripts/04_htseq_count.sh
 ```
 
-### 7. Downstream analysis
+### 8. Downstream analysis
 
 
 ## Notes
