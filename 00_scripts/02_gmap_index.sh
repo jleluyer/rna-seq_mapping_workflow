@@ -13,7 +13,6 @@
 module load apps/gmap/2015-12-31.v9
 
 # Global variables
-DATAFOLDER="03_trimmed"
 GENOMEFOLDER="/rap/userID/jeremy_leluyer/Database/Okisutch"
 FASTA="/rap/userID/jeremy_leluyer/Database/Okisutch/okis_uvic.scf.fasta"
 GENOME="gmap_coho"
@@ -22,4 +21,4 @@ GENOME="gmap_coho"
 cd $PBS_O_WORKDIR
 
 #prepare the genome
-gmap_build --dir="$GENOMEFOLDER" "$FASTA" -d "$GENOME"
+gmap_build --dir="$GENOMEFOLDER" "$FASTA" -d "$GENOME" 2>&1 | tee 98_log_files/"$TIMESTAMP"_index.log
