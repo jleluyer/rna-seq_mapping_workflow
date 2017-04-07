@@ -1,24 +1,26 @@
 #!/bin/bash
-#PBS -A userID
 #PBS -N gmap_index
-#PBS -o gmap_index_.out
-#PBS -e gsnap_index.err
+#PBS -o gmap_index.out
 #PBS -l walltime=24:00:00
-#PBS -M userEmail
 #PBS -m ea 
-#PBS -l nodes=1:ppn=8
+#PBS -l ncpus=1
+#PBS -l mem=100g
 #PBS -r n
 
-#prequis
-module load apps/gmap/2015-12-31.v9
+TIMESTAMP=$(date +%Y-%m-%d_%Hh%Mm%Ss)
+SCRIPT=$0
+NAME=$(basename $0)
+LOG_FOLDER="98_log_files"
+cp $SCRIPT "$LOG_FOLDER"/"$TIMESTAMP"_"$NAME"
 
 # Global variables
-GENOMEFOLDER="/rap/userID/jeremy_leluyer/Database/Okisutch"
-FASTA="/rap/userID/jeremy_leluyer/Database/Okisutch/okis_uvic.scf.fasta"
-GENOME="gmap_coho"
+GENOMEFOLDER="/home1/datawork/jleluyer/00_ressources/transcriptomes/Symbiodinium_sp/clade_C1"
+FASTA="/home1/datawork/jleluyer/00_ressources/transcriptomes/Symbiodinium_sp/clade_C1/Symbiodinium-sp-C1.nt.fa"
+GENOME="gmap_symbiodiniumspC1"
 
 #move to present working dir
 cd $PBS_O_WORKDIR
 
-#prepare the genome
-gmap_build --dir="$GENOMEFOLDER" "$FASTA" -d "$GENOME" 2>&1 | tee 98_log_files/"$TIMESTAMP"_index.log
+#
+
+gmap_build --dir="$GENOMEFOLDER" "$FASTA" -d "$GENOME" 2> 98_log_files/log.index."$TIMESTAMP"

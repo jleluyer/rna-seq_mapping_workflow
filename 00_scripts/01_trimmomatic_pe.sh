@@ -1,13 +1,15 @@
 #!/bin/bash
-#PBS -A ihv-653-ab
 #PBS -N trimmomatic__BASE__
 #PBS -o trimmomatic__BASE__.out
-#PBS -e trimmomatic__BASE__.err
 #PBS -l walltime=02:00:00
-#PBS -M userEmail
-#PBS -m ea 
-#PBS -l nodes=1:ppn=8
+#PBS -l mem=60g
+#####PBS -m ea 
+#PBS -l ncpus=8
+#PBS -q omp
 #PBS -r n
+
+cd $PBS_O_WORKDIR
+
 
 TIMESTAMP=$(date +%Y-%m-%d_%Hh%Mm%Ss)
 SCRIPT=$0
@@ -15,24 +17,19 @@ NAME=$(basename $0)
 LOG_FOLDER="98_log_files"
 cp $SCRIPT $LOG_FOLDER/"$TIMESTAMP"_"$NAME"
 
-#pre-requis
 
-module load compilers/gcc/4.8
-module load apps/mugqic_pipeline/2.1.1
-module load mugqic/java/jdk1.7.0_60
-module load mugqic/trimmomatic/0.35
+# Global variables
 
-ADAPTERFILE="/rap/userID/00_ressources/02_databases/univec/univec.fasta"
-
-#move to present working dir
-cd $PBS_O_WORKDIR
-
+ADAPTERFILE="/home1/datawork/jleluyer/00_ressources/univec/univec.fasta"
+NCPU=8
 base=__BASE__
+TRIMMOMATIC_JAR="/datawork/fsi1/bioinfo/home12-copycaparmor/softs/sources/trimmomatic/Trimmomatic-0.36/trimmomatic-0.36.jar"
 
-java -XX:ParallelGCThreads=1 -Xmx22G -cp $TRIMMOMATIC_JAR org.usadellab.trimmomatic.TrimmomaticPE \
-        -phred33 \
-        02_data/"$base"_R1.fastq.gz \
-        02_data/"$base"_R2.fastq.gz \
+java -Xmx40G -jar $TRIMMOMATIC_JAR PE \
+	-threads 8 \
+	-phred33 \
+        02_data/"$base"_1.fastq.gz \
+        02_data/"$base"_2.fastq.gz \
         03_trimmed/"$base"_R1.paired.fastq.gz \
         03_trimmed/"$base"_R1.single.fastq.gz \
         03_trimmed/"$base"_R2.paired.fastq.gz \
@@ -41,5 +38,4 @@ java -XX:ParallelGCThreads=1 -Xmx22G -cp $TRIMMOMATIC_JAR org.usadellab.trimmoma
         LEADING:20 \
         TRAILING:20 \
         SLIDINGWINDOW:30:30 \
-        MINLEN:70 2>&1 | tee 98_log_files/"$TIMESTAMP"_trimmomatic_"$base".log
-        
+        MINLEN:40 2> 98_log_files/log.trimmomatic.pe."$TIMESTAMP"      
