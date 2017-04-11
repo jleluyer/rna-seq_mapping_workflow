@@ -14,7 +14,7 @@ DATAOUTPUT="04_mapped"
 DATAINPUT="03_trimmed"
 GENOMEFOLDER="/home1/datawork/jleluyer/00_ressources/transcriptomes/Symbiodinium_sp/clade_C1"
 GENOME="gmap_symbiodiniumspC1"
-
+platform="Illumina"
 #move to present working dir
 cd $PBS_O_WORKDIR
 
@@ -27,6 +27,8 @@ base=__BASE__
     gsnap --gunzip -t 8 -A sam --min-coverage=0.90 \
 	--dir="$GENOMEFOLDER" -d "$GENOME" \
         -o "$DATAOUTPUT"/"$base".sam \
+	--read-group-id="$base" \
+	 --read-group-platform="$platform" \
 	"$DATAINPUT"/"$base"_R1.paired.fastq.gz "$DATAINPUT"/"$base"_R2.paired.fastq.gz
 
     # Create bam file
@@ -36,7 +38,7 @@ base=__BASE__
         $DATAOUTPUT/"$base".sam >  $DATAOUTPUT/"$base".bam
 	
      echo "Creating sorted bam for $base"
-	samtools sort -n "$DATAOUTPUT"/"$base".bam "$DATAOUTPUT"/"$base".sorted
+	samtools sort -n "$DATAOUTPUT"/"$base".bam -o "$DATAOUTPUT"/"$base".sorted
     
     # Clean up
     echo "Removing "$DATAOUTPUT"/"$base".sam"
