@@ -35,10 +35,10 @@ base=__BASE__
     echo "Creating bam for $base"
 
     samtools view -Sb -q 1 -F 4 -F 256 \
-        $DATAOUTPUT/"$base".sam >  $DATAOUTPUT/"$base".bam
+        $DATAOUTPUT/"$base".sam >$DATAOUTPUT/"$base".bam
 	
      echo "Creating sorted bam for $base"
-	samtools sort -n "$DATAOUTPUT"/"$base".bam -o "$DATAOUTPUT"/"$base".sorted
+	samtools sort -n "$DATAOUTPUT"/"$base".bam -o "$DATAOUTPUT"/"$base".sorted.bam
     
     # Clean up
     echo "Removing "$DATAOUTPUT"/"$base".sam"
