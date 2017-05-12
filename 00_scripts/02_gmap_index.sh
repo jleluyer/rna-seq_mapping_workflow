@@ -4,7 +4,7 @@
 #PBS -l walltime=24:00:00
 #PBS -m ea 
 #PBS -l ncpus=1
-#PBS -l mem=100g
+#PBS -l mem=30g
 #PBS -r n
 
 TIMESTAMP=$(date +%Y-%m-%d_%Hh%Mm%Ss)
@@ -14,9 +14,9 @@ LOG_FOLDER="98_log_files"
 cp $SCRIPT "$LOG_FOLDER"/"$TIMESTAMP"_"$NAME"
 
 # Global variables
-GENOMEFOLDER="/home1/datawork/jleluyer/00_ressources/transcriptomes/Symbiodinium_sp/clade_C1"
-FASTA="/home1/datawork/jleluyer/00_ressources/transcriptomes/Symbiodinium_sp/clade_C1/Symbiodinium-sp-C1.nt.fa"
-GENOME="gmap_symbiodiniumspC1"
+GENOMEFOLDER="/home1/datawork/jleluyer/00_ressources/transcriptomes/P_margaritifera"
+FASTA="/home1/datawork/jleluyer/00_ressources/transcriptomes/P_margaritifera/Trinity-6lib-sequentiel.fasta"
+GENOME="gmap_pmargaritifera"
 
 #move to present working dir
 cd $PBS_O_WORKDIR

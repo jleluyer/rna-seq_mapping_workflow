@@ -12,8 +12,10 @@
 # Global variables
 DATAOUTPUT="04_mapped"
 DATAINPUT="03_trimmed"
-GENOMEFOLDER="/home1/datawork/jleluyer/00_ressources/transcriptomes/Symbiodinium_sp/clade_C1"
-GENOME="gmap_symbiodiniumspC1"
+
+GENOMEFOLDER="/home1/datawork/jleluyer/00_ressources/transcriptomes/P_margaritifera"
+GENOME="gmap_pmargaritifera"
+
 platform="Illumina"
 #move to present working dir
 cd $PBS_O_WORKDIR
@@ -34,12 +36,13 @@ base=__BASE__
     # Create bam file
     echo "Creating bam for $base"
 
-    samtools view -Sb -q 1 -F 4 -F 256 \
+    samtools view -Sb -q 5 -F 4 -F 256 \
         $DATAOUTPUT/"$base".sam >$DATAOUTPUT/"$base".bam
 	
      echo "Creating sorted bam for $base"
 	samtools sort -n "$DATAOUTPUT"/"$base".bam -o "$DATAOUTPUT"/"$base".sorted.bam
-    
+    	samtools index "$DATAOUTPUT"/"$base".sorted.bam
+
     # Clean up
     echo "Removing "$DATAOUTPUT"/"$base".sam"
     echo "Removing "$DATAOUTPUT"/"$base".bam"
