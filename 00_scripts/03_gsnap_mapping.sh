@@ -1,9 +1,9 @@
 #!/bin/bash
-#PBS -N gsnap__BASE__
-#PBS -o gsnap__BASE__.out
-#PBS -e gsnap__BASE__.err
+#PBS -N gsnap.__BASE__
+#PBS -o gsnap.__BASE__.err
 #PBS -l walltime=10:00:00
-#PBS -m ea 
+#PBS -l mem=100g
+#####PBS -m ea
 #PBS -l ncpus=8
 #PBS -q omp
 #PBS -r n
