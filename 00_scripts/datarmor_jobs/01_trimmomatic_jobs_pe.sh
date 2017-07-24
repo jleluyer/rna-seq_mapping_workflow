@@ -4,7 +4,7 @@
 rm 00_scripts/datarmor_jobs/TRIM*sh
 
 # launch scripts for Colosse
-for file in $(ls 02_data/*.f*q.gz|perl -pe 's/_R[12].f(ast)?q.gz//'|sort -u)
+for file in $(ls /scratch/home1/jleluyer/juv_couleur/02_data/*.f*q.gz|perl -pe 's/_R[12].f(ast)?q.gz//'|sort -u)
 
 do
 	base=$(basename "$file")

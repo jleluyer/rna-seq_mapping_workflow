@@ -7,7 +7,7 @@ rm 00_scripts/datarmor_jobs/GSNAP_*sh
 
 
 # launch scripts for Colosse
-for file in $(ls ../transcriptome_assembly/03_trimmed/*paired*.f*q.gz|perl -pe 's/_R[12].paired.fastq.gz//'|sort -u)
+for file in $(ls /scratch/home1/jleluyer/juv_couleur/03_trimmed/*paired*.f*q.gz|perl -pe 's/_R[12].paired.fastq.gz//'|sort -u)
 do
 
 base=$(basename "$file")

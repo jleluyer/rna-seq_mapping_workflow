@@ -15,8 +15,8 @@ cp $SCRIPT "$LOG_FOLDER"/"$TIMESTAMP"_"$NAME"
 
 # Global variables
 GENOMEFOLDER="/home1/datawork/jleluyer/00_ressources/transcriptomes/P_margaritifera"
-FASTA="/home1/datawork/jleluyer/00_ressources/transcriptomes/P_margaritifera/Trinity-6lib-sequentiel.fasta"
-GENOME="gmap_pmargaritifera"
+FASTA="/home1/datawork/jleluyer/00_ressources/transcriptomes/P_margaritifera/Trinity.0.5.210717.fasta"
+GENOME="gmap_0.5_pmargaritifera"
 
 #move to present working dir
 cd $PBS_O_WORKDIR

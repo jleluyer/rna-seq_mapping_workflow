@@ -17,25 +17,28 @@ NAME=$(basename $0)
 LOG_FOLDER="98_log_files"
 cp $SCRIPT $LOG_FOLDER/"$TIMESTAMP"_"$NAME"
 
+tmp="/scratch/home1/jleluyer/juv_couleur"
+TRIMMOMATIC_JAR="/datawork/fsi1/bioinfo/home12-copycaparmor/softs/sources/trimmomatic/Trimmomatic-0.36/trimmomatic-0.36.jar"
+
+#. /appli/bioinfo/trimmomatic/0.36/env.sh
 
 # Global variables
 
 ADAPTERFILE="/home1/datawork/jleluyer/00_ressources/univec/univec.fasta"
 NCPU=8
 base=__BASE__
-TRIMMOMATIC_JAR="/datawork/fsi1/bioinfo/home12-copycaparmor/softs/sources/trimmomatic/Trimmomatic-0.36/trimmomatic-0.36.jar"
 
 java -Xmx40G -jar $TRIMMOMATIC_JAR PE \
 	-threads 8 \
 	-phred33 \
-        02_data/"$base"_1.fastq.gz \
-        02_data/"$base"_2.fastq.gz \
-        03_trimmed/"$base"_R1.paired.fastq.gz \
-        03_trimmed/"$base"_R1.single.fastq.gz \
-        03_trimmed/"$base"_R2.paired.fastq.gz \
-        03_trimmed/"$base"_R2.single.fastq.gz \
+        "$tmp"/02_data/"$base"_R1.fastq.gz \
+        "$tmp"/02_data/"$base"_R2.fastq.gz \
+        "$tmp"/03_trimmed/"$base"_R1.paired.fastq.gz \
+        "$tmp"/03_trimmed/"$base"_R1.single.fastq.gz \
+        "$tmp"/03_trimmed/"$base"_R2.paired.fastq.gz \
+        "$tmp"/03_trimmed/"$base"_R2.single.fastq.gz \
         ILLUMINACLIP:"$ADAPTERFILE":2:20:7 \
         LEADING:20 \
         TRAILING:20 \
         SLIDINGWINDOW:30:30 \
-        MINLEN:40 2> 98_log_files/log.trimmomatic.pe."$TIMESTAMP"      
+        MINLEN:60 2> 98_log_files/log.trimmomatic.pe."$TIMESTAMP"      

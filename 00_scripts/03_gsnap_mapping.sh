@@ -9,16 +9,18 @@
 #PBS -r n
 
 
+. /appli/bioinfo/samtools/1.4.1/env.sh
+
 # Global variables
 DATAOUTPUT="04_mapped"
-DATAINPUT="../transcriptome_assembly/03_trimmed"
+DATAINPUT="/home1/scratch/jleluyer/juv_couleur/03_trimmed"
 
 GENOMEFOLDER="/home1/datawork/jleluyer/00_ressources/transcriptomes/P_margaritifera"
-GENOME="gmap_pmargaritifera"
+GENOME="gmap_0.5_pmargaritifera"
 
 platform="Illumina"
 
-TMP="/home1/scratch/jleluyer"
+TMP="/home1/scratch/jleluyer/juv_couleur/04_mapped"
 
 
 #move to present working dir
@@ -44,8 +46,8 @@ base=__BASE__
         "$TMP"/"$base".sam >"$TMP"/"$base".bam
 	
      echo "Creating sorted bam for $base"
-	samtools sort -n "$TMP"/"$base".bam -o "$DATAOUTPUT"/"$base".sorted.bam
-    	samtools index "$TMP"/"$base".sorted.bam
+	samtools sort "$TMP"/"$base".bam -o "$DATAOUTPUT"/"$base".sorted.bam
+    	samtools index "$DATAOUTPUT"/"$base".sorted.bam
 
     # Clean up
     echo "Removing "$TMP"/"$base".sam"
