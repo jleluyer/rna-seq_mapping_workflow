@@ -17,7 +17,7 @@ NAME=$(basename $0)
 LOG_FOLDER="98_log_files"
 cp $SCRIPT $LOG_FOLDER/"$TIMESTAMP"_"$NAME"
 
-tmp="/scratch/home1/jleluyer/juv_couleur"
+tmp"
 TRIMMOMATIC_JAR="/datawork/fsi1/bioinfo/home12-copycaparmor/softs/sources/trimmomatic/Trimmomatic-0.36/trimmomatic-0.36.jar"
 
 #. /appli/bioinfo/trimmomatic/0.36/env.sh
