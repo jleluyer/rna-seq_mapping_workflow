@@ -33,6 +33,7 @@ base=__BASE__
     echo "Aligning $base"
 
     gsnap --gunzip -t 8 -A sam --min-coverage=0.90 \
+    	--max-mismatches=5 --novelsplicing=1 \
 	--dir="$GENOMEFOLDER" -d "$GENOME" \
         -o "$TMP"/"$base".sam \
 	--read-group-id="$base" \
