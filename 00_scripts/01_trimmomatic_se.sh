@@ -1,13 +1,15 @@
 #!/bin/bash
-#PBS -A userID
 #PBS -N trimmomatic__BASE__
 #PBS -o trimmomatic__BASE__.out
-#PBS -e trimmomatic__BASE__.err
 #PBS -l walltime=02:00:00
-#PBS -M userEmail
-#PBS -m ea 
-#PBS -l nodes=1:ppn=8
+#PBS -l mem=60g
+#####PBS -m ea 
+#PBS -l ncpus=8
+#PBS -q omp
 #PBS -r n
+
+cd $PBS_O_WORKDIR
+
 
 TIMESTAMP=$(date +%Y-%m-%d_%Hh%Mm%Ss)
 SCRIPT=$0
@@ -15,25 +17,18 @@ NAME=$(basename $0)
 LOG_FOLDER="98_log_files"
 cp $SCRIPT $LOG_FOLDER/"$TIMESTAMP"_"$NAME"
 
-#pre-requis
+. /appli/bioinfo/trimmomatic/0.36/env.sh
 
-module load compilers/gcc/4.8
-module load apps/mugqic_pipeline/2.1.1
-module load mugqic/java/jdk1.7.0_60
-module load mugqic/trimmomatic/0.35
+# Global variables
 
-#global variables
-ADAPTERFILE="/path/to/file.fasta"
-
-#move to present working dir
-cd $PBS_O_WORKDIR
-
+ADAPTERFILE="/home1/datawork/jleluyer/00_ressources/univec/univec.fasta"
+NCPU=8
 base=__BASE__
 
-java -XX:ParallelGCThreads=1 -Xmx22G -cp $TRIMMOMATIC_JAR org.usadellab.trimmomatic.TrimmomaticSE \
+trimmomatic SE -Xmx60G \
         -phred33 \
         02_data/"$base".fastq.gz \
-        03_trimmed/"$base"trimmed.fastq.gz \
+        03_trimmed/"$base".trimmed.fastq.gz \
         ILLUMINACLIP:"$ADAPTERFILE":2:20:7 \
         LEADING:20 \
         TRAILING:20 \
