@@ -28,7 +28,7 @@ base=__BASE__
     # Align reads
     echo "Aligning $base"
  gsnap --gunzip -t "$NCPUS" -A sam --min-coverage=0.5 \
-	--dir="$GENOMEFOLDER" -d "$GENOMEINDEX" \
+	--dir="$GENOMEFOLDER" -d "$GENOME" \
        	--max-mismatches=5 --novelsplicing=1 \
 	--split-output="$DATAOUTPUT"/"$base" \
 	--read-group-id="$base" \

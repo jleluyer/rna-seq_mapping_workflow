@@ -15,7 +15,6 @@ base=$(basename "$file")
 	toEval="cat 00_scripts/03_gsnap_mapping.sh | sed 's/__BASE__/$base/g'"; eval $toEval > 00_scripts/datarmor_jobs/GSNAP_$base.sh
 done
 
-exit
 #Submit jobs
 for i in $(ls 00_scripts/datarmor_jobs/GSNAP_*sh); do qsub $i; done
 
