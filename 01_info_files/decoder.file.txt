@@ -1,0 +1,11 @@
+sample.ID	group.ID	size.factor	
+HI.4287.003.Index_10.M5_jctseq	good	1.0186259
+HI.4287.003.Index_11.B1_jctseq	bad	0.9667391
+HI.4287.003.Index_1.M1_jctseq	good	0.7856133
+HI.4287.003.Index_20.B2_jctseq	bad	1.1450197
+HI.4287.003.Index_21.B5_jctseq	bad	0.8970266
+HI.4287.003.Index_22.B3_jctseq	bad	1.1488184
+HI.4287.003.Index_25.B4_jctseq	bad	1.1084112
+HI.4287.003.Index_3.M2_jctseq	good	0.8308192
+HI.4287.003.Index_8.M4_jctseq	good	1.1186639
+HI.4287.003.Index_9.M3_jctseq	good	1.0863533

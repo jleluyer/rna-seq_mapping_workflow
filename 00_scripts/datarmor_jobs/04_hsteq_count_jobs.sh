@@ -5,7 +5,8 @@
 
 rm 00_scripts/datarmor_jobs/HTSQ_*sh
 
-for i in $(ls 04_mapped/*sorted.bam|sed 's/.sorted.bam//g')
+for i in $(ls 04_mapped/transcriptome/*sorted.bam|sed 's/.sorted.bam//g')
+
 do
 base="$(basename $i)"
 
