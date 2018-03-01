@@ -9,18 +9,18 @@
 #PBS -r n
 
 
-. /appli/bioinfo/samtools/1.4.1/env.sh
+
 
 # Global variables
 DATAOUTPUT="04_mapped/transcriptome"
 DATAINPUT="03_trimmed"
 
 # For transcriptome
-GENOMEFOLDER="/home1/datawork/jleluyer/00_ressources/transcriptomes/P_margaritifera"
+GENOMEFOLDER="_margaritifera"
 GENOME="gmap_0.5_pmargaritifera"
 
 # For genome
-#GENOMEFOLDER="/home1/datawork/jleluyer/00_ressources/genomes/P_margaritifera"
+#GENOMEFOLDER="P_margaritifera"
 #GENOME="indexed_genome"
 platform="Illumina"
 
