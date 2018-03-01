@@ -17,11 +17,10 @@ NAME=$(basename $0)
 LOG_FOLDER="98_log_files"
 cp $SCRIPT $LOG_FOLDER/"$TIMESTAMP"_"$NAME"
 
-. /appli/bioinfo/trimmomatic/0.36/env.sh
 
 # Global variables
 
-ADAPTERFILE="/home1/datawork/jleluyer/00_ressources/univec/univec.fasta"
+ADAPTERFILE="univec.fasta"
 NCPU=8
 base=__BASE__
 
