@@ -12,14 +12,14 @@
 cd $PBS_O_WORKDIR
 
 # install htseq
-. /appli/bioinfo/htseq/0.6.1/env.sh
+
 
 #Global variables
 DATAINPUT="04_mapped/transcriptome"
 DATAOUTPUT="05_count"
 DATAOUTPUT_SPLICE=""
 
-GFF_FOLDER="/home1/datawork/jleluyer/00_ressources/transcriptomes/P_margaritifera"
+GFF_FOLDER="P_margaritifera"
 GFF_FILE="Trinity.100aaorf.minexpr0.5.gff3"
 
 #launch script
