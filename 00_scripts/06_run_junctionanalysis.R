@@ -1,7 +1,7 @@
 #!/usr/bin/Rscript
 
 
-setwd("/home1/datawork/jleluyer/01_projects/poche_qualite/rna-seq_mapping_workflow/")
+setwd("rna-seq_mapping_workflow/")
 
 
 # load lib
