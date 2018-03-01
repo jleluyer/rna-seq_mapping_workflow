@@ -14,8 +14,8 @@ LOG_FOLDER="98_log_files"
 cp $SCRIPT "$LOG_FOLDER"/"$TIMESTAMP"_"$NAME"
 
 # Global variables
-GENOMEFOLDER="/home1/datawork/jleluyer/00_ressources/transcriptomes/P_margaritifera"
-FASTA="/home1/datawork/jleluyer/00_ressources/transcriptomes/P_margaritifera/Trinity.100aaorf.minexpr0.5.fa"
+GENOMEFOLDER="P_margaritifera"
+FASTA="Trinity.100aaorf.minexpr0.5.fa"
 GENOME="gmap_0.5_pmargaritifera"
 
 #move to present working dir
