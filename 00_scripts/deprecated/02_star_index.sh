@@ -26,8 +26,8 @@ module load mugqic/star/2.5.0a
 
 #variable
 GENOMEFOLDER="02_data/genome_star.dir"
-GENOME="/rap/ihv-653-ab/jeremy_leluyer/Database/Okisutch/okis_uvic.scf.fasta"
-PWD="/rap/ihv-653-ab/jeremy_leluyer/epic4/transgenics/transcriptome/rna-seq_workflow"
+GENOME="okis_uvic.scf.fasta"
+PWD="rna-seq_workflow"
 
 cd $PWD
 
