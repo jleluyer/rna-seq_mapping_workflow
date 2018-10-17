@@ -25,7 +25,7 @@ NCPU=8
 base=__BASE__
 
 trimmomatic PE -Xmx60G \
-        -threads 8 \
+        -threads $NCPU \
         -phred33 \
         02_data/"$base"_R1.fastq.gz \
         02_data/"$base"_R2.fastq.gz \
