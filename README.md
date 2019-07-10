@@ -1,6 +1,6 @@
 # RNAseq using a reference genome
 
-An integrated worklow based on genome-mapping and DE gene assessment to conduct RNA-seq data analyses in Colosse
+An integrated worklow based on genome-mapping and DE gene assessment to conduct RNAseq data analyses in Colosse
 
 
 **WARNING**
